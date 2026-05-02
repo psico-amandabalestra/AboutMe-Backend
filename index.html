@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanda Balestra | Psicóloga</title>
+
+  <!-- Google Fonts: Cormorant Garamond para títulos (elegante/humanista) + Lato para corpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons via CDN (ícones leves e elegantes) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!--
+    NOTA: O script do Calendly NÃO é carregado aqui no <head>.
+    Ele é carregado dinamicamente pelo script.js apenas quando o modal
+    de agendamento é aberto, garantindo a inicialização correta do widget.
+  -->
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVEGAÇÃO ===== -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- Logo -->
+      <a href="#inicio" class="header__logo">
+        <img src="assets/logo.png" alt="Amanda Balestra Psicóloga" />
+      </a>
+
+      <!-- Menu desktop -->
+      <nav class="header__nav" id="nav">
+        <ul class="header__nav-list">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#abordagem" class="nav-link">Abordagem</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão agendar (chama o modal do Calendly) -->
+      <button class="btn btn--primary btn--agendar" onclick="abrirAgendamento()">
+        Agendar
+      </button>
+
+      <!-- Botão hamburguer para mobile -->
+      <button class="header__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+    <!-- Menu mobile (expandido) -->
+    <div class="header__mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#sobre" class="nav-link" onclick="fecharMenu()">Sobre</a></li>
+        <li><a href="#abordagem" class="nav-link" onclick="fecharMenu()">Abordagem</a></li>
+        <li><a href="#servicos" class="nav-link" onclick="fecharMenu()">Serviços</a></li>
+        <li><a href="#contato" class="nav-link" onclick="fecharMenu()">Contato</a></li>
+        <li>
+          <button class="btn btn--primary w-full" onclick="abrirAgendamento(); fecharMenu()">
+            Agendar
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== HERO / INÍCIO ===== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+
+      <!-- Ícone decorativo + título -->
+      <div class="section-icon">
+        <div class="section-icon__line"></div>
+        <i data-lucide="leaf" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h1 class="hero__title">A psicologia não muda quem você é. Amplia quem você pode ser.</h1>
+      <p class="hero__subtitle"><em>"Seu espaço de escuta e acolhimento."</em></p>
+      <p class="hero__desc">
+        Permita-se olha para si com mais cuidado.
+      </p>
+
+      <!-- CTA principal -->
+      <button class="btn btn--primary btn--lg" onclick="abrirAgendamento()">
+        Agendar Consulta
+      </button>
+
+      <!-- Três cartões de frases -->
+      <div class="hero__cards">
+        <div class="hero__card">
+          <p>Sua história tem espaço aqui.</p>
+        </div>
+        <div class="hero__card">
+          <p>Psicoterapia com escuta qualificada.</p>
+        </div>
+        <div class="hero__card hero__card--accent">
+          <p>Atendimento ético e sigiloso.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+
+      <!-- Ícone decorativo de seção -->
+      <div class="section-icon">
+        <div class="section-icon__line"></div>
+        <i data-lucide="heart" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h2 class="section-title">Sobre</h2>
+
+      <div class="sobre__grid">
+        <!-- Foto da psicóloga -->
+        <div class="sobre__photo-wrap">
+          <img src="assets/perfil.png" alt="Amanda Balestra" class="sobre__photo" />
+        </div>
+
+        <!-- Informações textuais -->
+        <div class="sobre__info">
+          <h3 class="sobre__name">Amanda Balestra</h3>
+          <p class="sobre__crp">Psicóloga | CRP 06/234487</p>
+
+          <p>
+            Psicóloga formada pela Universidade UNIP. </p> 
+            Psicologia Clínica com abordagem fenomenológico-existencial.
+          </p>
+          <p>
+            Ofereço um espaço acolhedor onde você pode compreender 
+            suas experiências e construir novas formas de lidar com 
+            os seus desafios, sem julgamento e com total privacidade.
+          </p>
+
+          <ul class="sobre__list">
+            <li>Atendimento Presencial e Online</li>
+            <li>Abordagem Fenomenológico-Existencial</li>
+            <li>Foco no acolhimento</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ABORDAGEM ===== -->
+  <section class="abordagem" id="abordagem">
+    <div class="container">
+
+      <div class="section-icon">
+        <div class="section-icon__line"></div>
+        <i data-lucide="heart" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h2 class="section-title">Abordagem Fenomenológica</h2>
+      <p class="section-subtitle">Uma terapia centrada em você, suas vivências e possibilidades</p>
+
+      <!-- Dois cartões de abordagem -->
+      <div class="abordagem__grid">
+        <div class="card card--light">
+          <h3 class="card__title">Cuidado Personalizado</h3>
+          <p>
+            Mais do que técnicas, um cuidado construído a partir da sua experiência.
+          </p>
+        </div>
+        <div class="card card--accent">
+          <h3 class="card__title">Escuta ativa</h3>
+          <p>
+            Um processo que respeita a sua história e a forma única como você vive suas experiências.
+          </p>
+        </div>
+      </div>
+
+      <!-- Citação em destaque -->
+      <blockquote class="abordagem__quote">
+        "Quando sou ouvido torno-me capaz de rever o meu mundo e continuar." </p>- Carl Rogers
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS (Como Funciona) ===== -->
+  <section class="servicos" id="servicos">
+    <div class="container">
+
+      <div class="section-icon">
+        <div class="section-icon__line"></div>
+        <i data-lucide="message-circle" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h2 class="section-title">Como Funciona</h2>
+      <p class="section-subtitle">Atendimento personalizado para suas necessidades</p>
+
+      <!-- Dois cartões de modalidade -->
+      <div class="servicos__grid">
+
+        <!-- Online -->
+        <div class="service-card service-card--online">
+          <div class="service-card__icon service-card__icon--green">
+            <i data-lucide="calendar"></i>
+          </div>
+          <h3>Atendimento Online</h3>
+          <p>
+            Sessões por videochamada, com toda a segurança e
+            privacidade que você merece, no conforto da sua casa.
+          </p>
+          <ul class="service-card__list">
+            <li>Flexibilidade de horários</li>
+            <li>Plataforma segura e privada</li>
+            <li>Atendimento em todo o Brasil</li>
+          </ul>
+        </div>
+
+        <!-- Presencial -->
+        <div class="service-card service-card--presencial">
+          <div class="service-card__icon service-card__icon--brown">
+            <i data-lucide="map-pin"></i>
+          </div>
+          <h3>Atendimento Presencial</h3>
+          <p>
+            Espaço acolhedor e confortável para suas sessões presenciais
+            em consultório.
+          </p>
+          <ul class="service-card__list">
+            <li>Ambiente tranquilo e privativo</li>
+            <li>Localização acessível</li>
+            <li>Estacionamento disponível</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Sinais de que você pode se beneficiar -->
+      <div class="sinais">
+        <h3 class="sinais__title">A terapia pode ser um espaço para:</h3>
+        <div class="sinais__grid">
+          <ul class="sinais__col">
+            <li>Dar lugar ao que você sente</li>
+            <li>Compreender o que tem sido vivido</li>
+          </ul>
+          <ul class="sinais__col">
+            <li>Refletir sobre suas relações e escolhas</li>
+            <li>Se aproximar de quem você é</li>
+          </ul>
+          <ul class="sinais__col">
+            <li>Encontrar novos sentidos para sua experiência</li>
+            <p>E tudo aquilo que, de alguma forma, pede por escuta.</p>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CTA AGENDAR ===== -->
+  <section class="cta-agendar">
+    <div class="cta-agendar__bg-leaves" aria-hidden="true"></div>
+    <div class="container cta-agendar__inner">
+
+      <div class="section-icon section-icon--white">
+        <div class="section-icon__line"></div>
+        <i data-lucide="calendar" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h2 class="cta-agendar__title">Agende sua consulta</h2>
+      <p class="cta-agendar__desc">
+        Dê o primeiro passo para se conhecer melhor. Entre em contato e
+        vamos conversar sobre como posso te ajudar.
+      </p>
+
+      <!-- Dois botões: online e whatsapp -->
+      <div class="cta-agendar__btns">
+        <button class="btn btn--outline-white" onclick="abrirAgendamento()">
+          <i data-lucide="calendar"></i>
+          Agendar Online
+        </button>
+        <a
+          href="https://wa.me/5512988945587?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta."
+          target="_blank"
+          rel="noopener"
+          class="btn btn--outline-white"
+        >
+          <i data-lucide="message-circle"></i>
+          WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="contato" id="contato">
+    <div class="container">
+
+      <div class="section-icon">
+        <div class="section-icon__line"></div>
+        <i data-lucide="phone" class="section-icon__icon"></i>
+        <div class="section-icon__line"></div>
+      </div>
+
+      <h2 class="section-title">Contato</h2>
+      <p class="section-subtitle">Entre em contato e tire suas dúvidas</p>
+
+      <div class="contato__grid">
+
+        <!-- Informações de contato -->
+        <div class="contato__info">
+          <h3 class="contato__info-title">Informações de Contato</h3>
+
+          <div class="contato__info-item">
+            <i data-lucide="phone"></i>
+            <div>
+              <strong>Telefone</strong>
+              <span>(12) 98894-5587</span>
+            </div>
+          </div>
+
+          <div class="contato__info-item">
+            <i data-lucide="mail"></i>
+            <div>
+              <strong>E-mail</strong>
+              <span>psicologa.amandabalestra@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="contato__info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px; color: var(--color-sage);">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <div>
+              <strong>Instagram</strong>
+              <span>@psico.amandabalestra</span>
+            </div>
+          </div>
+
+          <div class="contato__info-item">
+            <i data-lucide="clock"></i>
+            <div>
+              <strong>Horário de Atendimento</strong>
+              <span>Segunda a Sexta: 16h às 19h</span>
+              <span>Sábado: 9h às 12h</span>
+            </div>
+          </div>
+
+          <!-- Citação -->
+          <blockquote class="contato__quote">
+            Agende sua primeira consulta sem compromisso. Vamos conversar
+            sobre suas necessidades e como a terapia pode ajudar.
+          </blockquote>
+        </div>
+
+        <!-- Formulário de mensagem -->
+        <div class="contato__form-wrap">
+          <h3>Envie uma mensagem</h3>
+
+          <!-- NOTA: Este formulário envia e-mail via EmailJS (gratuito).
+               Veja o script.js para configuração -->
+          <div class="contato__form" id="contatoForm">
+
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="seu@email.com" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" placeholder="(00) 00000-0000" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" rows="5" placeholder="Como posso te ajudar?"></textarea>
+            </div>
+
+            <button class="btn btn--primary w-full" onclick="enviarMensagem()">
+              Enviar Mensagem
+            </button>
+
+            <!-- Área de feedback do formulário -->
+            <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <!-- Logo no footer -->
+        <div class="footer__logo-wrap">
+          <img src="assets/logo.png" alt="Amanda Balestra Psicóloga" />
+        </div>
+        <p>
+          Psicologia com abordagem fenomenológico-existencial.
+          Um espaço de escuta e acolhimento.
+        </p>
+
+        <!-- Ícones sociais -->
+        <div class="footer__socials">
+          <a href="https://instagram.com/psico.amandabalestra" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="mailto:psicologa.amandabalestra@gmail.com" aria-label="E-mail">
+            <i data-lucide="mail"></i>
+          </a>
+          <a href="tel:+5512988945587" aria-label="Telefone">
+            <i data-lucide="phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navegação no footer -->
+      <div class="footer__nav">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#abordagem">Abordagem</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato no footer -->
+      <div class="footer__contact">
+        <h4>Contato</h4>
+        <p>(12) 98894-5587</p>
+        <p>psicologa.amandabalestra@gmail.com</p>
+        <p>@psico.amandabalestra</p>
+      </div>
+
+    </div>
+
+    <!-- Rodapé legal -->
+    <div class="footer__bottom">
+      <p>© 2026 Amanda Balestra Psicóloga. Todos os direitos reservados. CRP 06/234487</p>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL DE AGENDAMENTO (Calendly) ===== -->
+  <!--
+    COMO FUNCIONA A INTEGRAÇÃO COM CALENDLY:
+    1. Acesse calendly.com e crie sua conta gratuita
+    2. Configure seu tipo de evento (ex: "Consulta 50min")
+    3. Copie a URL do seu evento (ex: https://calendly.com/seu-usuario/consulta)
+    4. Cole essa URL na variável CONFIG.CALENDLY_URL no arquivo script.js
+    O widget será carregado automaticamente ao abrir o modal.
+  -->
+  <div class="modal-overlay" id="modalAgendamento" role="dialog" aria-modal="true" aria-label="Agendar consulta">
+    <div class="modal">
+
+      <!-- Barra fixa do topo — sempre visível, não rola -->
+      <div class="modal__topbar">
+        <button class="modal__close" onclick="fecharAgendamento()" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!-- Área de conteúdo rolável -->
+      <div class="modal__body">
+        <h2 class="modal__title">Agendar Consulta</h2>
+        <p class="modal__desc">
+          Escolha um horário disponível na agenda abaixo para agendar sua consulta.
+        </p>
+
+        <!-- O widget do Calendly é inserido dinamicamente pelo script.js -->
+        <div class="modal__calendar" id="calendarContainer">
+          <div class="modal__loading">
+            <i data-lucide="loader-circle" class="spin"></i>
+            <p>Carregando agenda...</p>
+          </div>
+        </div>
+
+        <!-- Botão alternativo para WhatsApp -->
+        <div class="modal__alt">
+        <p>Problema ao carregar o calendário? <a href="https://calendly.com/psicologa-amandabalestra/consulta-amanda-balestra" target="_blank" rel="noopener" style="color:var(--color-sage);font-weight:700;">Abrir em nova aba →</a></p>
+        <p>Prefere agendar pelo WhatsApp?</p>
+        <a
+          href="https://wa.me/5512988945587?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta."
+          target="_blank"
+          rel="noopener"
+          class="btn btn--whatsapp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar via WhatsApp
+        </a>
+        </div>
+      </div><!-- /.modal__body -->
+    </div>
+  </div>
+
+  <!-- ===== BOTÃO FLUTUANTE WHATSAPP ===== -->
+  <a
+    href="https://wa.me/5512988945587?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener"
+    aria-label="Conversar no WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+</body>
+</html>
